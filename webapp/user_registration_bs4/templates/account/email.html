@@ -3,9 +3,18 @@
 {% load i18n %}
 
 {% block head_title %}{% trans "Account" %}{% endblock %}
+{% load bootstrap4 %}
 
 {% block content %}
-    <h1>{% trans "E-mail Addresses" %}</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col col-4  mx-auto">
+            <div class="card">
+                <div class="card-body">
+    <h1 class="h4">{% trans "E-mail Addresses" %}</h1>
+    <hr>
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -31,9 +40,9 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="secondaryAction btn btn-primary" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="secondaryAction btn btn-secondary" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="primaryAction  btn btn-secondary" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
@@ -49,9 +58,15 @@
 
     <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        {% bootstrap_form form %}
+        <button name="action_add" class="btn btn-primary btn-block" type="submit">{% trans "Add E-mail" %}</button>
     </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 
