@@ -11,8 +11,13 @@
             <ul class="navbar-nav ml-auto">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link " href="/accounts/profile/">Profile</a>
+                    <a href="/accounts/profile/">
+                        <img src="{{request.user.user_profile.image.url}}" style="height:40px;"
+                             alt="{{request.user.fullname}}" class="avatar rounded-circle">
+                        <span class="header-username">{{request.user.get_full_name}}</span>
+                    </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link " href="/accounts/logout/">Logout</a>
                 </li>
