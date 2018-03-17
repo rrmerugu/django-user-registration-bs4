@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block head_title %}{% trans "User Profile" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col col-3 ">
+            {% include 'user_profile/sidebar.html' %}
+        </div>
+
+        <div class="col col-9 ">
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h6">User Profile Settings</h2>
+                    <hr>
+
+                    <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary btn-block">{% trans "Sign Up" %} &raquo;</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
