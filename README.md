@@ -11,8 +11,9 @@ We shall be able to use it as plain email based registration alone or along with
 - Forgot Password
 - Email Validation
 - Logout Page
-- Fancy HomePage
-- User Profile with auto generated profile pic
+- Fancy HomePage layout
+- Custom User Profile 
+- auto generated profile pic for User Profile
 
 
 ## Screenshots
