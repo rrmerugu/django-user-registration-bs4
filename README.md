@@ -15,6 +15,15 @@ We shall be able to use it as plain email based registration alone or along with
 - User Profile with auto generated profile pic
 
 
+## Screenshots
+
+![Signin](screenshots/signin.png)
+![Signup](screenshots/signup.png)
+![homepage](screenshots/homepage.png)
+![password reset](screenshots/password-reset.png)
+![user profile](screenshots/user-profile.png)
+
+
 
 ## References:
 
