@@ -1,18 +1,28 @@
 {% extends "openid/base.html" %}
 
 {% load i18n %}
-
+{% load bootstrap4 %}
 {% block head_title %}OpenID Sign In{% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col col-4  mx-auto">
+            <div class="mt-5 pb-5"></div>
 
-<h1>{% trans 'OpenID Sign In' %}</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h4">{% trans 'OpenID Sign In' %}</h1>
+                    <hr>
 
 
-<form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit">Sign In</button>
-</form>
-
-{% endblock %}
+                    <form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -5,7 +5,16 @@
 {% block head_title %}{% trans "Account Connections" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Connections" %}</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-4  mx-auto">
+            <div class="mt-5 pb-5"></div>
+
+            <div class="card">
+                <div class="card-body">
+<h1 class="h4">{% trans "Account Connections" %}</h1>
+<hr>
 
 {% if form.accounts %}
 <p>{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
@@ -50,5 +59,9 @@
 </ul>
 
 {% include "socialaccount/snippets/login_extra.html" %}
-
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
