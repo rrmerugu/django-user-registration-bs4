@@ -1,0 +1,90 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+<style>
+    body{
+        background:#efefef;
+        font-size: 14px;
+    }
+    .card{
+        background: white;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+
+        <div class="col col-8  mx-auto">
+            <div class="mt-5 pb-5"></div>
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h4">{% trans "Sign In" %}</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            {% get_providers as socialaccount_providers %}
+
+                            {% if socialaccount_providers %}
+
+                            <div class="socialaccount_ballot">
+
+                                <ul class="socialaccount_providers mt-4 list-unstyled">
+                                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                </ul>
+
+                                <!--<div class="login-or">{% trans 'or' %}</div>-->
+
+                            </div>
+                                                        <p>{% blocktrans with site.name as site_name %}Please sign in with one
+                                of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+                                for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+
+                            {% include "socialaccount/snippets/login_extra.html" %}
+                            {% else %}
+                            <p>{% blocktrans %}If you have not created an account yet, then please
+                                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                            {% endif %}
+
+                        </div>
+                        <div class="col col-6">
+
+
+                            <form class="login" method="POST" action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}"
+                                       value="{{ redirect_field_value }}"/>
+                                {% endif %}
+
+                                <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+                                <div class="row mt-2">
+                                    <div class="col col-6">
+                                        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+                                            {% trans "Forgot Password?" %}</a>
+                                    </div>
+                                    <div class="col col-6 text-right">
+                                        <a href="{{ signup_url }}">sign up</a>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
