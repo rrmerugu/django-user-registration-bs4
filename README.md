@@ -40,7 +40,3 @@ User Profile page
 ![user profile](screenshots/user-profile.png)
 
 
-
-## References:
-
-- UI inspired from https://nauvalazhar.github.io/my-login/index.html
