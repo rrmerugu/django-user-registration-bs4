@@ -17,19 +17,24 @@ We shall be able to use it as plain email based registration alone or along with
 
 ## Screenshots
 
-Homepage 
+**Homepage**
+========
 ![homepage](screenshots/homepage.png)
 
-Signin Page
+**Signin Page**
+========
 ![Signin](screenshots/signin.png)
 
-Signup Page
+**Signup Page**
+========
 ![Signup](screenshots/signup.png)
 
-Password reset page
+**Password reset page**
+========
 ![password reset](screenshots/password-reset.png)
 
-User Profile page
+**User Profile page**
+========
 ![user profile](screenshots/user-profile.png)
 
 
