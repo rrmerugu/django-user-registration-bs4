@@ -10,7 +10,7 @@ from django.dispatch import receiver
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_profile")
     image = models.ImageField(default=None, null=True, blank=True)
-    bio = models.TextField(max_length=500, blank=True)
+    bio = models.TextField(max_length=500, blank=True, verbose_name="Write about your self")
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
 

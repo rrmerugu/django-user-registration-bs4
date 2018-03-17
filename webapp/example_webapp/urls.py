@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('user_registration_bs4.urls')),
     url(r'^', include('user_profile.urls')),
+    url(r'^', include('webpages.urls')),
 ]

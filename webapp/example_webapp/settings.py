@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     'user_profile',
+    'webpages',
 
 ]
 
