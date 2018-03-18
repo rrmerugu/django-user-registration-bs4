@@ -19,9 +19,10 @@
                     <h2 class="h6">User Profile Settings</h2>
                     <hr>
 
-                    <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                    <form class="form" id="user_update_form" method="post" action=".">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+                        {% bootstrap_form user_detail_form %}
+                        {% bootstrap_form user_profile_form %}
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                         {% endif %}

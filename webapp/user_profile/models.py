@@ -38,11 +38,11 @@ class UserProfile(models.Model):
     }
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_profile")
-    image = ImageThumbsField(default=None,
+    image = ImageThumbsField(default=None, verbose_name="profile image",
                              sizes=SIZES,
                              upload_to=upload_avatar_to, null=True, blank=True)
-    bio = models.TextField(max_length=500, blank=True, verbose_name="Write about your self")
-    location = models.CharField(max_length=30, blank=True)
+    bio = models.TextField(max_length=500, blank=True, null=True, default=None, verbose_name="Write about your self")
+    location = models.CharField(max_length=30, blank=True, null=True, default=None)
     birth_date = models.DateField(null=True, blank=True)
 
     def generate_img(self):
