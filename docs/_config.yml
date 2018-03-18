@@ -1,2 +1,2 @@
-#theme: jekyll-theme-cayman
-remote_theme: pawamoy/jekyll-readthedocs
+theme: jekyll-readthedocs
+#remote_theme: pawamoy/jekyll-readthedocs
