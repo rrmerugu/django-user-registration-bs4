@@ -11,6 +11,9 @@ This project uses the following amazing projects from the opensource:
 - Django
 - django-allauth
 - django-anymail
+- django-bootstrap4
+- placeholder-pics
+- django-thumbs-v2``
 
 - Signup Page (With and Without Social Signup)
 - Login Page (With and Without Social Login)
