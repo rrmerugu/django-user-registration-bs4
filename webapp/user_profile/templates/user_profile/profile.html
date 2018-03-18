@@ -19,7 +19,7 @@
                     <h2 class="h6">User Profile Settings</h2>
                     <hr>
 
-                    <form class="form" id="user_update_form" method="post" action=".">
+                    <form class="form" id="user_update_form" enctype="multipart/form-data" method="post" action=".">
                         {% csrf_token %}
                         {% bootstrap_form user_detail_form %}
                         {% bootstrap_form user_profile_form %}
