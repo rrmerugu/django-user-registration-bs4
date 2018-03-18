@@ -9,7 +9,7 @@ django-thumbs-v2==0.4.1
 idna==2.6
 oauthlib==2.0.6
 Pillow==5.0.0
-placeholder-pics==1.0.3
+git+https://github.com/rrmerugu/placeholder-pics
 python3-openid==3.1.0
 pytz==2018.3
 requests==2.18.4
