@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'user_registration_bs4',
     'bootstrap4',
+    'django_thumbs',
 
     'allauth',
     'allauth.account',

@@ -6,6 +6,8 @@ from io import BytesIO
 import logging
 from django.core.files.base import ContentFile
 from placeholder_pics.placeholder import PlaceholderPic
+from django_thumbs.fields import ImageThumbsField
+
 import os
 from django.utils import timezone
 
@@ -22,8 +24,23 @@ def upload_avatar_to(instance, filename):
 
 
 class UserProfile(models.Model):
+    SIZES = (
+        {'code': '60x60', 'wxh': '60x60', 'resize': 'crop'},  #
+        {'code': '100x100', 'wxh': '100x100', 'resize': 'crop'},
+        {'code': '200x200', 'wxh': '200x200', 'resize': 'crop'},  # 'resize' defaults to 'scale'
+        {'code': '400x400', 'wxh': '400x400', 'resize': 'crop'},  # 'resize' defaults to 'scale'
+    )
+
+    THUMBNAIL_ALIASES = {
+        '': {
+            'avatar': {'size': (50, 50), 'crop': True},
+        },
+    }
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_profile")
-    image = models.ImageField(default=None, upload_to=upload_avatar_to, null=True, blank=True)
+    image = ImageThumbsField(default=None,
+                             sizes=SIZES,
+                             upload_to=upload_avatar_to, null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True, verbose_name="Write about your self")
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -42,16 +59,13 @@ class UserProfile(models.Model):
         self.image.save("%s.png" % self.user.id,
                         ContentFile(s))
 
-    def save(self, *args, **kwargs):
-        if not self.image:
-            self.generate_img()
-        return super(UserProfile, self).save(*args, **kwargs)
-
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
+        profile = UserProfile.objects.create(user=instance)
+        if not profile.image:
+            profile.generate_img()
 
 
 @receiver(post_save, sender=User)
