@@ -18,13 +18,13 @@ This project uses the following amazing projects from the opensource:
 
 The project covers 
 
-- [*] all the user registrations use cases by django-allauth (all the templates uses bootstrap4 UI )
-- [*] custom user profile model (one to one relation with User model). 
-- [-]user profile settings pages 
-    - [*] update user information, 
+- [x] all the user registrations use cases by django-allauth (all the templates uses bootstrap4 UI )
+- [x] custom user profile model (one to one relation with User model). 
+- [ ]user profile settings pages 
+    - [x] update user information, 
     - [ ] de-activate/re-activate user[TODO]
-- [*] email backend service(django-anymail) email templates (django-allauth) to work with registration flow 
-- [*] generic webpages UI - homepage, terms, about[TODO]
+- [x] email backend service(django-anymail) email templates (django-allauth) to work with registration flow 
+- [x] generic webpages UI - homepage, terms, about[TODO]
 
 
 ## Screenshots
