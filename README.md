@@ -6,6 +6,12 @@ registration and authentication views.
 We shall be able to use it as plain email based registration alone or along with social auth.
 
 
+This project uses the following amazing projects from the opensource:
+
+- Django
+- django-allauth
+- django-anymail
+
 - Signup Page (With and Without Social Signup)
 - Login Page (With and Without Social Login)
 - Forgot Password
